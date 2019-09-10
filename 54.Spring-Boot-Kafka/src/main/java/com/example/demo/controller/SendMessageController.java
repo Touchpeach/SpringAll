@@ -45,4 +45,8 @@ public class SendMessageController {
     public void sendMessage(@PathVariable String message) {
         this.kafkaTemplate.send("test", new Message("mrbird", message));
     }
+
+    public void getMessage(){
+        this.kafkaTemplate
+    }
 }

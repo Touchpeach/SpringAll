@@ -1,11 +1,16 @@
 server:
-  port: 80
+  port: 8009
+
+mail:
+  config:
+    local: /data/sendLog/sendStatus.txt
+    sendTopic: 乐到,国标,成都,西安
 
 spring:
   mail:
-    host: smtp.163.com
-    username: xxxx@163.com
-    password: xxxx
+    host: smtp.exmail.qq.com
+    username: zentao@futuremove.cn
+    password: 123456Fm
     properties:
       mail:
         smtp:

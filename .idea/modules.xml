@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/22.Spring-Boot-Email/Spring-Boot-Email.iml" filepath="$PROJECT_DIR$/22.Spring-Boot-Email/Spring-Boot-Email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/67.Spring-boot-Netty/Spring-boot-Netty.iml" filepath="$PROJECT_DIR$/67.Spring-boot-Netty/Spring-boot-Netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringAll.iml" filepath="$PROJECT_DIR$/.idea/SpringAll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/54.Spring-Boot-Kafka/demo.iml" filepath="$PROJECT_DIR$/54.Spring-Boot-Kafka/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/56.Spring-Boot-MongoDB-crud/mongodb.iml" filepath="$PROJECT_DIR$/56.Spring-Boot-MongoDB-crud/mongodb.iml" />
+    </modules>
+  </component>
+</project>

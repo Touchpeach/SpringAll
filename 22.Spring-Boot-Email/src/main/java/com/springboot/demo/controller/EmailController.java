@@ -1,15 +1,22 @@
 package com.springboot.demo.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import javax.mail.internet.MimeMessage;
 
+import cn.hutool.cron.CronUtil;
+import cn.hutool.cron.Scheduler;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.TemplateEngine;
@@ -28,12 +35,18 @@ public class EmailController {
     @Autowired
     private TemplateEngine templateEngine;
 
+    @RequestMapping("/start")
+    public String startCron(){
+		CronUtil.start();
+		return "启动成功";
+	}
+
 	@RequestMapping("sendSimpleEmail")
 	public String sendSimpleEmail() {
 		try {
 			SimpleMailMessage message = new SimpleMailMessage();
 			message.setFrom(from);
-			message.setTo("888888@qq.com"); // 接收地址
+			message.setTo("pengtao.li@futuremove.cn"); // 接收地址
 			message.setSubject("一封简单的邮件"); // 标题
 			message.setText("使用Spring Boot发送简单邮件。"); // 内容
 			jms.send(message);
@@ -127,4 +140,5 @@ public class EmailController {
 			return e.getMessage();
 		}
 	}
+
 }
