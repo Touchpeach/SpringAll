@@ -1,6 +1,6 @@
 # 我是注释
-[com.springboot.demo.job]
-SendEmailJob.sendEmail = 1 7,12,17 * * *
+#[com.springboot.demo.job]
+#SendEmailJob.sendEmail = 1 7,12,17 * * *
 
-[com.springboot.demo.controller]
-SendStausJobController.guardSend = */2 * * * *
+[com.springboot.demo.job]
+SendEmailJob.sendEmail = */30 * * * *

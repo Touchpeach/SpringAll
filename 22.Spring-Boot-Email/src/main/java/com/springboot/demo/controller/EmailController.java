@@ -36,9 +36,15 @@ public class EmailController {
     private TemplateEngine templateEngine;
 
     @RequestMapping("/start")
-    public String startCron(){
+	public String startCron(){
 		CronUtil.start();
 		return "启动成功";
+	}
+
+	@RequestMapping("/stop")
+	public String stopCron(){
+		CronUtil.stop();
+		return "关闭成功";
 	}
 
 	@RequestMapping("sendSimpleEmail")

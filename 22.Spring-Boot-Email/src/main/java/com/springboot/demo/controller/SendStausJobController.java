@@ -38,6 +38,10 @@ public class SendStausJobController {
     @Autowired
     private MailConfigBean mailConfigBean;
 
+    /**
+     * 对外提供接口，查看转发的状态
+     * @return
+     */
     @RequestMapping("/guardSend")
     public ResponseBo guardSend(){
 
@@ -48,7 +52,7 @@ public class SendStausJobController {
         }
         //更新最新的日志文件
         try {
-            Process exec = Runtime.getRuntime().exec("sh /data/sendLog/lookout.sh");
+            Process exec = Runtime.getRuntime().exec("sh /data/server/send1_ledao/lookLog/lookout.sh");
             exec.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,16 +100,23 @@ public class SendStausJobController {
             }
         }
 
+        int flag = 0;
 
         for (int j = 0 ;j < timeList.size();j++){
             if(timeList.get(j).equals(format)){
                 stringBuffer.append(topicMap.get(j) + "没有问题  ");
             } else {
                 stringBuffer.append(topicMap.get(j) + "有问题  ");
+                flag = 1;
             }
         }
-        log.info(stringBuffer.toString());
-        String s = SendEmail(stringBuffer.toString());
+
+        String s = "";
+
+        if(flag == 1){
+            log.info(stringBuffer.toString());
+            s = SendEmail(stringBuffer.toString());
+        }
 
         return ResponseBo.ok(stringBuffer.toString()+ "  " + s);
     }
@@ -115,7 +126,7 @@ public class SendStausJobController {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(from);
-            message.setTo("pengtao.li@futuremove.cn"); // 接收地址
+            message.setTo(new String[]{"pengtao.li@futuremove.cn","shaowang.wei@futuremove.cn","yugang.yang@futuremove.cn"}); // 接收地址
             message.setSubject("转发服务状态"); // 标题
             message.setText(mail); // 内容
             jms.send(message);

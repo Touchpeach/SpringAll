@@ -8,6 +8,6 @@ import cn.hutool.http.HttpUtil;
 public class SendEmailJob {
 
     public void sendEmail(){
-        HttpUtil.get("http://localhost:8009/job/guardSend");
+        HttpUtil.get("http://localhost:8080/job/guardSend");
     }
 }

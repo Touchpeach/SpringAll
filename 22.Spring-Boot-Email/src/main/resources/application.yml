@@ -1,10 +1,10 @@
 server:
-  port: 8009
+  port: 8080
 
 mail:
   config:
-    local: /data/sendLog/sendStatus.txt
-    sendTopic: 乐到,国标,成都,西安
+    local: /data/server/send1_ledao/lookLog/sendStatus2.txt
+    sendTopic: 乐到,国标,成都,乐到杭州
 
 spring:
   mail:
