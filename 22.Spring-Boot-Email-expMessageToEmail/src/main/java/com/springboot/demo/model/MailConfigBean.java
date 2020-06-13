@@ -12,6 +12,16 @@ public class MailConfigBean {
 
     private String sendTopic;
 
+    private String to;
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
     public String getSendTopic() {
         return sendTopic;
     }

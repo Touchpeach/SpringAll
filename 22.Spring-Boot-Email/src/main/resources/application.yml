@@ -5,6 +5,7 @@ mail:
   config:
     local: /data/server/send1_ledao/lookLog/sendStatus2.txt
     sendTopic: 乐到,国标,成都,乐到杭州
+    lookOutPath: /data/server/send2_nj/lookLog/lookout.sh
 
 spring:
   mail:

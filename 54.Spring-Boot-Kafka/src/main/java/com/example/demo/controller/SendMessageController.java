@@ -46,7 +46,5 @@ public class SendMessageController {
         this.kafkaTemplate.send("test", new Message("mrbird", message));
     }
 
-    public void getMessage(){
-        this.kafkaTemplate
-    }
+
 }

@@ -1,8 +1,8 @@
 ## db.setting文件
 
-url = jdbc:mysql://182.92.132.44:3307/monitor
+url = jdbc:mysql://40.73.40.202:3307/monitor
 user = root
-pass = FM3.1415926
+pass = Fm3.1415926
 
 ## 可选配置
 # 是否在日志中显示执行的SQL

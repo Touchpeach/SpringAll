@@ -35,6 +35,10 @@ public class EmailController {
     @Autowired
     private TemplateEngine templateEngine;
 
+    static {
+    	CronUtil.start();
+	}
+
     @RequestMapping("/start")
 	public String startCron(){
 		CronUtil.start();

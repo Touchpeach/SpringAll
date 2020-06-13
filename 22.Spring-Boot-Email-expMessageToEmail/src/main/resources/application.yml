@@ -1,10 +1,51 @@
+######################################### 系统配置 #########################################################
 server:
-  port: 8080
-
-mail:
+  port: 8081
+########################################## 基本配置 ########################################################
+mongoHis2Hex2Txt:
   config:
-    local: /data/server/send1_ledao/lookLog/sendStatus2.txt
-    sendTopic: 乐到,国标,成都,乐到杭州
+    # exp:week or yesterday or today
+    expDateTyps: yesterday
+    # exp:base64 or hex
+    expFromatType: hex
+    # exp:history_2001,history_2002 可以以","分隔
+    historyTables: history_2007
+    # 目标文件夹名称
+    targetDir: exp5Vin
+    # 转发日志的路劲
+    expSendFilePath: /data/server/send1_ledao/gb_send/vinlogs
+    # 需要导出车辆的vin
+    operVins: LS4ADM3C0HA940022,LS4ADM3C3HA940175,LS4ADM3C8HF045557,LS4ADM3C3HF049256,LS4ADM3CXHA940111
+    # 需要导出的carId，和上面的vin一一对应
+    operCarIds: 5012e47aca564e5f93d0fd3eed39c0bf,d0d51016b7734f88a06e4f63fd8b6d3a,c416a2d30cce42d0bb421e4db75e1509,5f4a79ecbeaf42349f2bfa75bd40b9fc,4d96002d607c4e2585c71af7171c3eea
+    # 文件导出的路径 /data/server/bin/script/vinlogs  F:/usr/
+    fileRootPath: /data/server/bin/script/vinlogs/
+    # 转发日志的路劲
+    expFileSendPath: /data/server/send1_ledao/gb_send/vinlogs/
+  # mongo的配置
+  mongo:
+    storeEmpties: false
+    storeNulls: false
+    #com.springboot.demo.entity
+    mapperPath: com.springboot.demo.entity
+    port: 27018
+    db: history
+    #139.217.82.55:20000,139.217.119.208:20000,139.217.82.33:20000          40.73.6.96:27018
+    hostPortsStr: 139.217.82.55:20000,139.217.119.208:20000,139.217.82.33:20000
+    poolMaxsize:
+    poolMinsize:
+    poolWaittime:
+    poolIdletime:
+    poolLifetime:
+######################################### Mongo配置 #########################################################
+
+
+######################################### 其他配置  ##########################################################
+#mail:
+#  config:
+#    local: /data/server/send1_ledao/lookLog/sendStatus2.txt
+#    sendTopic: 乐到,国标,成都,乐到杭州
+#    to: pengtao.li@futuremove.cn,yugang.yang@futuremove.cn,shaowang.wei@futuremove.cn
 
 spring:
   mail:
@@ -18,3 +59,8 @@ spring:
           starttls:
             enable: true
             required: true
+  data:
+    mongodb:
+      host: 139.217.82.55
+      port: 20000
+      database: monitor

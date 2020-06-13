@@ -12,6 +12,16 @@ public class MailConfigBean {
 
     private String sendTopic;
 
+    private String lookOutPath;
+
+    public String getLookOutPath() {
+        return lookOutPath;
+    }
+
+    public void setLookOutPath(String lookOutPath) {
+        this.lookOutPath = lookOutPath;
+    }
+
     public String getSendTopic() {
         return sendTopic;
     }

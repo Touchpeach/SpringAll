@@ -52,7 +52,7 @@ public class SendStausJobController {
         }
         //更新最新的日志文件
         try {
-            Process exec = Runtime.getRuntime().exec("sh /data/server/send1_ledao/lookLog/lookout.sh");
+            Process exec = Runtime.getRuntime().exec("sh " + mailConfigBean.getLookOutPath());
             exec.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
